@@ -4,15 +4,15 @@
             <h1 class=" text-3xl py-4">AddUser</h1>
             <div class=" py-3">
                 <label for="" class="block">Name</label>
-                <input type="text" v-model="name" class="border-2 rounded border-gray-500 w-96 py-2">
+                <input type="text" v-model="name" class="border-2 rounded border-gray-500 w-96 py-2 px-3">
             </div>
             <div class=" py-3">
                 <label for="" class="block">Email</label>
-                <input type="email" v-model="email" class="border-2 rounded border-gray-500 w-96 py-2">
+                <input type="email" v-model="email" class="border-2 rounded border-gray-500 w-96 py-2 px-3">
             </div>
             <div class=" py-3">
                 <label for="" class="block">Password</label>
-                <input type="text" v-model="password" class="border-2 rounded border-gray-500 w-96 py-2">
+                <input type="text" v-model="password" class="border-2 rounded border-gray-500 w-96 py-2 px-3">
             </div>
             <div>
                 <button type="submit" class="bg-blue-700 w-full mt-3 rounded py-2 text-white">Submit</button>

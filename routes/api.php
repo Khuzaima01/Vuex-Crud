@@ -31,9 +31,17 @@ Route::post('/create/user', function (Request $request) {
         'email' => $request->email,
         'password' => $request->password,
     ]);
-    $users = User::all();
+    $newUser = User::where('email', $request->email)->first();
     return response()->json([
-        'User added' => 'User added Successfully',
-        'users' => $users,
+        'newUser' => $newUser,
+        'message' => 'User added Successfully',
+    ]);
+});
+
+
+Route::post('/delete/user/{id}', function ($id) {
+    $users = User::where('id', $id)->delete();
+    return response()->json([
+        'UserDeleted' => 'User deleted Successfully.',
     ]);
 });
