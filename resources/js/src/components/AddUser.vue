@@ -10,10 +10,6 @@
                 <label for="" class="block">Email</label>
                 <input type="email" v-model="email" class="border-2 rounded border-gray-500 w-96 py-2 px-3">
             </div>
-            <div class=" py-3">
-                <label for="" class="block">Password</label>
-                <input type="text" v-model="password" class="border-2 rounded border-gray-500 w-96 py-2 px-3">
-            </div>
             <div>
                 <button type="submit" class="bg-blue-700 w-full mt-3 rounded py-2 text-white">Submit</button>
             </div>
@@ -28,7 +24,6 @@ export default {
         return {
             name: '',
             email: '',
-            password: '',
         }
     },
     methods: {
@@ -38,12 +33,10 @@ export default {
             const formData = {
                 name: this.name,
                 email: this.email,
-                password: this.password
             };
             this.addUser(formData);
             this.name = '';
             this.email = '';
-            this.password= '';
         }
     },
 }

@@ -19,17 +19,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+// route to get all the users
 Route::get('/users', function () {
     $users = User::all();
     return $users;
 });
 
+// route to create a new user
 Route::post('/create/user', function (Request $request) {
     $user = User::create([
         'name' => $request->name,
         'email' => $request->email,
-        'password' => $request->password,
     ]);
     $newUser = User::where('email', $request->email)->first();
     return response()->json([
@@ -38,7 +38,22 @@ Route::post('/create/user', function (Request $request) {
     ]);
 });
 
+// route to update a user
+Route::post('/update/user/{id}', function (Request $request, $id) {
+    $user = User::where('id', $id)->first();
 
+    $user->update([
+        'name' => $request->name,
+        'email' => $request->email,
+    ]);
+
+    return response()->json([
+        'updatedUser' => $user,
+        'message' => 'User updated Successfully',
+    ]);
+});
+
+// route to delete a user
 Route::post('/delete/user/{id}', function ($id) {
     $users = User::where('id', $id)->delete();
     return response()->json([
